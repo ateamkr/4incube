@@ -4,3 +4,25 @@
  aside[aria-label="구성"]>.panel-scroll{padding-left:12px;padding-right:34px}
  header{padding-left:12px!important;padding-right:26px!important}
 }
+
+/* 4 IN CUBE — slate blue, gallery gray, signal yellow. */
+:root{--canvas:#ebebeb;--surface:#f8f9fa;--surface-2:#ebebeb;--line:#d9dde3;--line-strong:#9aa8bb;--ink:#283346;--ink-2:#4d6080;--muted:#758094;--accent:#4d6080;--accent-ink:#fff;--success:#4d6080}
+body{background:#ebebeb}
+header{background:#f8f9fa;border-bottom-color:#d9dde3}
+header>div:first-child>span:first-child{color:#4d6080;font-size:18px;font-weight:750;letter-spacing:.06em;display:inline-flex;align-items:center;gap:8px}
+header>div:first-child>span:first-child::before{content:"";width:22px;height:24px;flex:none;background:center/contain no-repeat url("./favicon.svg")}
+section[aria-label="3D 보기"]>div:first-child{background:#ebebeb}
+.ticker{--ticker-bg:#ffd800;--ticker-bg-2:#ffd800;background:#ffd800;color:#283346;box-shadow:0 4px 14px -8px #4d608055}
+.ticker-label{background:#4d6080;color:#fff}
+.ticker-dot{background:#ffd800;box-shadow:none}
+.ticker-cta{background:#4d6080;color:#fff}
+.ticker-strip .ticker-label{color:#283346}
+.btn-store,.btn-primary{background:#4d6080;color:white;border-color:#4d6080}
+.btn-store:hover,.btn-primary:hover{background:#3e506d}
+.btn-secondary{color:#4d6080;border-color:#bbc4d0;background:#f8f9fa}
+.btn-secondary:hover{background:#e4e9ef;border-color:#4d6080}
+[role="option"][aria-selected="true"]{background:#e5eaf0;border-color:#4d6080;box-shadow:inset 0 0 0 1px #4d6080}
+.choice[aria-checked="true"]{border-color:#4d6080;background:#4d6080;color:#fff}
+[role="tab"][aria-selected="true"]{color:#4d6080;border-color:#4d6080}
+:focus-visible{outline:2px solid #4d6080;outline-offset:3px}
+@media(max-width:767px){header>div:first-child>span:first-child{font-size:15px;gap:5px}header>div:first-child>span:first-child::before{width:18px;height:20px}}

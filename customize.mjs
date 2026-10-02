@@ -4,7 +4,7 @@ let html=await readFile(htmlPath,'utf8');
 html=html.replaceAll('/favicon.ico?favicon.2vob68tjqpejf.ico','/favicon.svg').replaceAll('type="image/x-icon"','type="image/svg+xml"');
 if(!html.includes('replica.css')) html=html.replace('</head>','<link rel="stylesheet" href="./replica.css"/><script defer src="./replica-tools.js"></script></head>');
 await writeFile(htmlPath,html);
-const cameraPath='dist/_next/static/chunks/1fcqpt60y10ix.js';
+const cameraPath='dist/_4incube/static/chunks/1fcqpt60y10ix.js';
 let camera=await readFile(cameraPath,'utf8');
 camera=camera.replace('direction:e,padding:u=1.18','direction:e,padding:u=(window.innerWidth>=1024?1.6:1.18)');
 await writeFile(cameraPath,camera);

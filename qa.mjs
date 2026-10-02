@@ -10,6 +10,16 @@ page.on('response',r=>{if(r.status()>=400)errors.push(`${r.status()} ${r.url()}`
 await page.goto('http://127.0.0.1:4173',{waitUntil:'networkidle'});
 await page.waitForSelector('canvas');
 await page.waitForTimeout(1200);
+assert.equal(await page.title(),'포인큐브 — 모듈러 3D 컨피규레이터');
+assert.doesNotMatch(await page.locator('body').innerText(),/PLANFURNI|플랜퍼니|PLAN FURNI/i);
+const brandColors=await page.evaluate(()=>({background:getComputedStyle(document.querySelector('section[aria-label="3D 보기"]>div')).backgroundColor,notice:getComputedStyle(document.querySelector('.ticker')).backgroundColor,button:getComputedStyle(document.querySelector('.btn-store')).backgroundColor}));
+assert.deepEqual(brandColors,{background:'rgb(235, 235, 235)',notice:'rgb(255, 216, 0)',button:'rgb(77, 96, 128)'});
+for(const option of await page.getByRole('listbox',{name:'레퍼런스 구성',exact:true}).getByRole('option').all()){
+ await option.click();
+ const links=await page.locator('a[href]').evaluateAll(aa=>aa.map(a=>a.getAttribute('href')));
+ assert(links.every(href=>href==='https://smartstore.naver.com/4incube'||href==='http://pf.kakao.com/_xndWBX'));
+}
+await page.getByRole('option',{name:/^No\.2 1523/}).click();
 for(const [width,height] of [[2535,1209],[2048,977],[1440,900],[1024,768],[768,1024],[390,844],[360,800]]){
  await page.setViewportSize({width,height});
  await page.waitForTimeout(700);
@@ -46,6 +56,7 @@ await page.locator('summary').filter({hasText:'가격 상세'}).click();
 const downloadPromise=page.waitForEvent('download');
 await page.getByRole('button',{name:'이미지 저장',exact:true}).click();
 const download=await downloadPromise;
+assert.match(download.suggestedFilename(),/^4incube-/);
 await download.saveAs('qa/furniture-export.png');
 const canvas=page.locator('canvas');
 const bounds=await canvas.boundingBox();
