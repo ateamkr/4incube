@@ -1,0 +1,6 @@
+/* Screenshot-matched desktop proportions; original touch layout is retained. */
+@media(min-width:1024px){
+ body>div.flex>div.lg\:grid{grid-template-columns:minmax(260px,14.15%) minmax(0,1fr) minmax(310px,15.75%)}
+ aside[aria-label="구성"]>.panel-scroll{padding-left:12px;padding-right:34px}
+ header{padding-left:12px!important;padding-right:26px!important}
+}

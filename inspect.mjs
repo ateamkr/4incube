@@ -1,0 +1,14 @@
+import { chromium } from 'file:///C:/Users/banana-10700K-32G/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs';
+import {mkdir,writeFile} from 'node:fs/promises';
+await mkdir('qa',{recursive:true});
+const browser=await chromium.launch({channel:'msedge',headless:true,args:['--enable-webgl','--ignore-gpu-blocklist']});
+const page=await browser.newPage({viewport:{width:2048,height:977},deviceScaleFactor:1});
+const errors=[];
+page.on('pageerror',e=>errors.push(e.message));
+page.on('response',r=>{if(r.status()>=400) errors.push(`${r.status()} ${r.url()}`)});
+await page.goto('http://127.0.0.1:4173',{waitUntil:'networkidle'});
+await page.waitForFunction(()=>!!document.querySelector('canvas'),{timeout:30000});
+await page.waitForTimeout(2000);
+await page.screenshot({path:'qa/desktop.png'});
+console.log(JSON.stringify({errors,text:await page.locator('body').innerText(),buttons:await page.getByRole('button').allTextContents()},null,2));
+await browser.close();
