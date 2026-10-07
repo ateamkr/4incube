@@ -12,6 +12,8 @@
 
 ## 실행
 
+외부 런타임 의존성이 없어 `npm install`은 필요하지 않습니다. `npm run build`는 제공된 정적 배포본의 JavaScript 문법과 HTML 리소스 경로를 검사하고 `build/`에 배포 파일을 복사합니다. 원본 React/TypeScript 소스의 재컴파일은 아닙니다. `build/`는 생성물이며 Git에서 제외합니다.
+
 Node.js 환경에서 `npm start`를 실행하면 http://127.0.0.1:4173 에서 열립니다. 외부 패키지 설치나 원본 사이트에 대한 프록시 연결 없이 동작합니다.
 
 `dist/`가 독립 배포 폴더입니다. `replica.css`는 첨부 화면에 맞춘 데스크톱 배치입니다. `customize.mjs`는 원본 배포본에 적용하는 아이콘 및 카메라 보정 스크립트입니다. `/configurator/` 경로도 로컬 서버에서 지원합니다.
