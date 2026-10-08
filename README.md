@@ -8,7 +8,7 @@
 
 원본: https://planfurni.github.io/PLANFURNI/configurator
 
-공개 배포 저장소 https://github.com/planfurni/PLANFURNI 의 커밋 `544803942bc33dc5ae5e0cf9261c38a86c6890bd`에서 컨피규레이터 배포 파일만 가져왔습니다. 원본 React/TypeScript 개발 소스가 아닌 실행 가능한 정적 배포본입니다. 브랜드·이미지·가격·외부 상담 및 스토어 링크는 원본을 유지합니다.
+공개 배포 저장소 https://github.com/planfurni/PLANFURNI 의 커밋 `544803942bc33dc5ae5e0cf9261c38a86c6890bd`에서 컨피규레이터 배포 파일만 가져왔습니다. 원본 React/TypeScript 개발 소스가 아닌 실행 가능한 정적 배포본입니다. 브랜드·상담·스토어 링크는 포인큐브로 변경했습니다. 상품 이미지와 가격표는 기존 값을 유지하며 자동 동기화하지 않습니다. 원본 Google·네이버 방문 통계 로더와 이벤트 전송은 제거했으며 자체 통계는 연결하지 않았습니다.
 
 ## 실행
 
